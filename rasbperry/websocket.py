@@ -24,7 +24,7 @@ async def handler(websocket):
     try:
         while True:
             message = await websocket.recv()
-            print(f'Received a message ${message}')
+            print(f'Received a message {message}')
             try:
                 if message == "pong":
                     continue
