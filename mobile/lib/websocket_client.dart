@@ -11,6 +11,7 @@ class WebSocketClient {
       _channel = WebSocketChannel.connect(
         Uri.parse('ws://192.168.1.78:8765'),
       );
+      _listen();
     } catch (error) {
       print("Caught");
       _scheduleReconnect();
@@ -37,6 +38,18 @@ class WebSocketClient {
     if (channel != null) {
       await channel.ready;
       channel.sink.add(command.toJson());
+    }
+  }
+
+  void _listen() async {
+    var channel = _channel;
+    if (channel != null) {
+      await channel.ready;
+      channel.stream.listen((message) {
+        if (message == "ping") {
+          channel.sink.add('pong');
+        }
+      });
     }
   }
 }

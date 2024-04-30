@@ -33,7 +33,6 @@ dependencies:
   web_socket_channel: ^2.4.5
   cupertino_icons: ^1.0.2
   shared_preferences: any
-  flutter_joystick: ^0.0.4
   flutter_launcher_icons: ^0.13.1
   url_launcher: ^6.2.3
 

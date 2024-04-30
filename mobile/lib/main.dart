@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/main_screen.dart';
+import 'package:mobile/slider_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: MainScreenWidget(),
+      home: const SliderScreenWidget(),
     );
   }
 }
