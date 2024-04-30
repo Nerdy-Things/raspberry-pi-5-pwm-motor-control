@@ -46,11 +46,13 @@ async def handler(websocket):
             ping_tasks.pop(websocket)
 
 async def ping_sender(websocket):
+    print("Ping started")
     while True:
         await asyncio.sleep(PING_INTERVAL)
         try:
             await websocket.send(PING_MESSAGE)
-            await asyncio.wait_for(websocket.recv(), timeout=PONG_TIMEOUT)  # Wait for pong
+            await asyncio.wait_for(websocket.recv(), timeout=PONG_TIMEOUT)  
+            print("Ping-Pong done")
         except (asyncio.TimeoutError, ConnectionClosed):
             print("Ping timeout, connection might be closed")
             break

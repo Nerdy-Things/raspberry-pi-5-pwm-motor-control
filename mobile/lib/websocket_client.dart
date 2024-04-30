@@ -46,7 +46,7 @@ class WebSocketClient {
     if (channel != null) {
       await channel.ready;
       channel.stream.listen((message) {
-        if (message == "ping") {
+        if (message == "PING" || message == "ping") {
           channel.sink.add('pong');
         }
       });
