@@ -35,8 +35,11 @@ class SliderScreenWidgetState extends State {
                 padding: const EdgeInsets.all(24.0),
                 child: Slider(
                   value: _currentSliderValue,
-                  max: 100,
-                  divisions: 40,
+                  min: -100.0,
+                  max: 100.0,
+                  divisions: 20,
+                  activeColor: Colors.purple.shade100,
+                  inactiveColor: Colors.purple.shade100,
                   label: _currentSliderValue.round().toString(),
                   onChanged: (double value) {
                     setState(() {
