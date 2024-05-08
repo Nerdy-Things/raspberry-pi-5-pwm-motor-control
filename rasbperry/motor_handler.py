@@ -16,7 +16,9 @@ class MotorHandler:
     def set(self, x, y):
         if y > 0: 
             self._pwm_control.set(channel=self._motor_forward, value=y)
+            self._pwm_control.set(channel=self._motor_backward, value=0)
         elif y < 0:
+            self._pwm_control.set(channel=self._motor_forward, value=0)
             self._pwm_control.set(channel=self._motor_backward, value=abs(y))
         else:
             self._pwm_control.set(channel=self._motor_forward, value=y)
